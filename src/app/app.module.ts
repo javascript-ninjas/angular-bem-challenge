@@ -7,11 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { TodoService } from './services/todo.service';
+import { WithbemComponent } from './components/withbem/withbem.component';
+import { WithoutbemComponent } from './components/withoutbem/withoutbem.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        TodoComponent
+        TodoComponent,
+        WithbemComponent,
+        WithoutbemComponent
     ],
     imports: [
         BrowserModule,
