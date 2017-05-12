@@ -1,24 +1,24 @@
-<section>
-    <header>
-        <h1>Todos</h1>
-        <input placeholder="What needs to be done?"
+<section class="app">
+    <header class="header">
+        <h1 class="header__title">Todos</h1>
+        <input class="header__input-text" placeholder="What needs to be done?"
                autofocus=""
                [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
     </header>
-    <section *ngIf="todos.length > 0">
-        <ul>
-            <li *ngFor="let todo of todos" [class.completed]="todo.complete">
-                <div>
-                    <input type="checkbox"
+    <section class="main" *ngIf="todos.length > 0">
+        <ul class="list">
+            <li class="list__todo" *ngFor="let todo of todos" [class.completed]="todo.complete">
+                <div class="todo-wrapper">
+                    <input class="todo-wrapper__input-checkbox" type="checkbox"
                            (click)="toggleTodoComplete(todo)"
                            [checked]="todo.complete">
-                    <label>{{todo.title}}</label>
-                    <button (click)="removeTodo(todo)"></button>
+                    <label class="todo-wrapper__label">{{todo.title}}</label>
+                    <button class="todo-wrapper__button" (click)="removeTodo(todo)">X</button>
                 </div>
             </li>
         </ul>
     </section>
-    <footer *ngIf="todos.length > 0">
+    <footer class="footer" *ngIf="todos.length > 0">
         <span><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
     </footer>
 </section>
