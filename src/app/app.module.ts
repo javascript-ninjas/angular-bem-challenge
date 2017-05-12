@@ -5,10 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TodoComponent } from './components/todo/todo.component';
+import { TodoService } from './services/todo.service';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        TodoComponent
     ],
     imports: [
         BrowserModule,
@@ -16,7 +19,7 @@ import { AppComponent } from './app.component';
         HttpModule,
         AppRoutingModule
     ],
-    providers: [],
+    providers: [TodoService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
