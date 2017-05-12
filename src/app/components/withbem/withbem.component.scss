@@ -1,3 +1,15 @@
+@mixin e($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+
+@mixin m($modifier) {
+    &--#{$modifier} {
+        @content;
+    }
+}
+
 .app {
     background: #fff;
     margin: 130px 0 40px 0;
@@ -6,7 +18,7 @@
 }
 
 .header {
-    &__title {
+    @include e('title') {
         position: absolute;
         top: -155px;
         width: 100%;
@@ -15,7 +27,8 @@
         text-align: center;
         color: rgba(175, 47, 47, 0.15);
     }
-    &__input-text {
+
+    @include e('input-text') {
         position: relative;
         margin: 0;
         width: 100%;
@@ -44,7 +57,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    &__todo {
+    @include e('todo') {
         &.completed {
             text-decoration: line-through;
             color: #ccc;
@@ -56,13 +69,13 @@
     position: relative;
     height: 70px;
     border-bottom: solid 1px #e2e2e2;
-    &__input-checkbox {
+    @include e('input-checkbox') {
         position: absolute;
         top: 50%;
         left: 10px;
         transform: translateY(-50%);
     }
-    &__label {
+    @include e('label') {
         word-break: break-all;
         padding-top: 22px;
         font-weight: bold;
@@ -72,7 +85,7 @@
         line-height: 1.2;
         transition: color 0.4s;
     }
-    &__button {
+    @include e('button') {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
