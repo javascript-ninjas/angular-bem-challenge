@@ -1,24 +1,30 @@
-<section>
-    <header>
-        <h1>Todos</h1>
-        <input placeholder="What needs to be done?"
-               autofocus=""
-               [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
-    </header>
-    <section *ngIf="todos.length > 0">
-        <ul>
-            <li *ngFor="let todo of todos" [class.completed]="todo.complete">
-                <div>
-                    <input type="checkbox"
-                           (click)="toggleTodoComplete(todo)"
-                           [checked]="todo.complete">
-                    <label>{{todo.title}}</label>
-                    <button (click)="removeTodo(todo)"></button>
-                </div>
-            </li>
-        </ul>
+<div class="container">
+
+    <h1>todos</h1>
+    <section class="main-section">
+        <header>
+            <input class="add-todo" placeholder="What needs to be done?"
+                   autofocus=""
+                   [(ngModel)]="newTodo.title"
+                   (keyup.enter)="addTodo()">
+        </header>
+        <section class="list-section" *ngIf="todos.length > 0">
+            <ul>
+                <li *ngFor="let todo of todos" [class.completed]="todo.complete">
+                    <div>
+                        <input class="list-item-checkebox" type="checkbox"
+                               (click)="toggleTodoComplete(todo)"
+                               [checked]="todo.complete">
+                        <label class="list-item-label">{{todo.title}}</label>
+                        <button class="list-item-button"
+                                (click)="removeTodo(todo)"></button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <footer *ngIf="todos.length > 0">
+            <span><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
+        </footer>
     </section>
-    <footer *ngIf="todos.length > 0">
-        <span><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
-    </footer>
-</section>
+</div>

@@ -3,15 +3,14 @@ import { Todo } from '../../models/todo';
 import { TodoService } from '../../services/todo.service';
 
 @Component({
-  selector: 'app-withoutbem',
-  templateUrl: './withoutbem.component.html',
-  styleUrls: ['./withoutbem.component.scss']
+    selector: 'app-withoutbem',
+    templateUrl: './withoutbem.component.html',
+    styleUrls: ['./withoutbem.component.scss']
 })
 export class WithoutbemComponent implements OnInit {
     newTodo: Todo = new Todo();
 
     constructor(private todoService: TodoService) {
-
     }
 
     addTodo() {
@@ -33,5 +32,4 @@ export class WithoutbemComponent implements OnInit {
 
     ngOnInit() {
     }
-
 }
